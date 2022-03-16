@@ -1,0 +1,56 @@
+.donut-chart {
+  width: 200px;
+  height: 200px;
+
+  .donut-chart-slice {
+    cursor: crosshair;
+
+    &:hover {
+      opacity: .6;
+    }
+
+    &:nth-child(1) {
+      fill: #F44336;
+    }
+    &:nth-child(2) {
+      fill: #FF9800;
+    }
+    &:nth-child(3) {
+      fill: #FFEB3B;
+    }
+    &:nth-child(4) {
+      fill: #8BC34A;
+    }
+    &:nth-child(5) {
+      fill: #009688;
+    }
+    &:nth-child(6) {
+      fill: #03A9F4;
+    }
+    &:nth-child(7) {
+      fill: #3F51B5;
+    }
+    &:nth-child(8) {
+      fill: #9C27B0;
+    }
+  }
+
+  .donut-chart-hole {
+    fill: #fff;
+    cursor: cell;
+  }
+
+  .donut-chart-name {
+    fill: #6c707c;
+    font-size: 0.165px;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+  .donut-chart-value {
+    fill: #414141;
+    font-size: 0.265px;
+    text-anchor: middle;
+    pointer-events: none;
+  }
+}

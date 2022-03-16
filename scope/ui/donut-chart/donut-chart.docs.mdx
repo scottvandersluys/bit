@@ -1,0 +1,56 @@
+---
+description: 'A DonutChart component.'
+labels: ['label1', 'label2', 'label3']
+---
+
+import { DonutChart } from './donut-chart';
+
+## React Component for rendering text
+
+A basic div that renders some text
+
+### Component usage
+```js
+const donutChartData = [
+  {
+    color: "#5d4aec",
+    name: "Yes",
+    value: 15
+  },
+  {
+    color: "#c9c3f6",
+    name: "No",
+    value: 14
+  },
+  {
+    color: "#897dec",
+    name: "Undecided",
+    value: 18
+  }
+];
+
+<DonutChart data={donutChartData} />
+```
+
+### Using props to customize the text
+
+Modify the text to see it change live:
+```js live
+<DonutChart data={[
+  {
+    color: "#5d4aec",
+    name: "Yes",
+    value: 15
+  },
+  {
+    color: "#c9c3f6",
+    name: "No",
+    value: 14
+  },
+  {
+    color: "#897dec",
+    name: "Undecided",
+    value: 18
+  }
+]} />
+```
