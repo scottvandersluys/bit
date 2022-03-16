@@ -1,9 +1,12 @@
-export type DonutChartData = {
+export type DonutChartSliceProps = {
   color?: string;
   name: string;
+  percent?: number;
   value: number;
-}[];
+};
+
+export type DonutChartDataProps = DonutChartSliceProps[];
 
 export type DonutChartProps = {
-  data: DonutChartData;
+  data: DonutChartDataProps;
 };

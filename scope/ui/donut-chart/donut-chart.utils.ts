@@ -1,4 +1,4 @@
-import { DonutChartData } from "./donut-chart.types";
+import { DonutChartDataProps } from "./donut-chart.types";
 
 export const getCoordinatesFromPercent = (percent: number) => {
   const x = Math.cos(2 * Math.PI * percent)
@@ -7,10 +7,10 @@ export const getCoordinatesFromPercent = (percent: number) => {
   return [x, y]
 };
 
-export const getPercentagesFromValues = (data: DonutChartData, totalValue: number) => {
+export const getPercentagesFromValues = (data: DonutChartDataProps, totalValue: number) => {
   return data.map((sliceData) => ({ ...sliceData, percent: sliceData.value / totalValue }));
 };
 
-export const getTotalValue = (data: DonutChartData = []) => {
+export const getTotalValue = (data: DonutChartDataProps) => {
   return data.reduce((total, currentObject) => total + currentObject.value, 0);
 };

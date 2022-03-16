@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { DonutChartProps } from './donut-chart.types';
+import { DonutChartProps, DonutChartSliceProps } from './donut-chart.types';
 import { getCoordinatesFromPercent, getPercentagesFromValues, getTotalValue } from './donut-chart.utils';
 
 import './donut-chart.styles.scss';
@@ -12,7 +12,7 @@ export function DonutChart(props: DonutChartProps) {
   const totalValue = useMemo(() => getTotalValue(data), [data]);
   const dataWithPercentages = useMemo(() => getPercentagesFromValues(data, totalValue), [data, totalValue]);
 
-  const handleSelect = (slice) => () => {
+  const handleSelect = (slice: DonutChartSliceProps) => () => {
     setSelected(selected?.name === slice.name ? null : slice)
   }
 
@@ -24,16 +24,18 @@ export function DonutChart(props: DonutChartProps) {
 
       if (!percent) return null;
 
+      const classList = ["donut-chart-slice"];
       const style = color ? { fill: color } : null;
 
+      if (selected?.name === name) classList.push('is-selected');
+
       if (percent === 1) {
+        classList.push('single-slice');
+
         return (
-          <circle className="donut-chart-slice" key={name} name={name} r={1} rx={0} ry={0} style={style} />
+          <circle className={classList.join(" ")} key={name} name={name} r={1} rx={0} ry={0} style={style} />
         );
       }
-
-      const classList = ["donut-chart-slice"];
-      if (selected?.name === name) classList.push('is-selected');
 
       const [startX, startY] = getCoordinatesFromPercent(cumulativePercent);
       cumulativePercent += percent;
